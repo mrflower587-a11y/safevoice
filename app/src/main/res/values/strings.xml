@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">SafeVoice</string>
+    <string name="notification_channel_recording_name">Voice Recording</string>
+    <string name="notification_channel_recording_desc">Silent ongoing status while an intentional SafeVoice recording session is active.</string>
+    <string name="notification_recording_title">SafeVoice Recording Active</string>
+    <string name="notification_recording_paused_title">SafeVoice Recording Paused</string>
+    <string name="notification_action_stop">Stop Recording</string>
+    <string name="consent_banner_text">SafeVoice only records when you explicitly tap Start Recording. Every segment is encrypted on-device with Android Keystore AES-256-GCM.</string>
+    <string name="interruption_paused_notice">Paused automatically due to a phone call or audio focus interruption</string>
+    <string name="low_storage_error">Insufficient device storage: at least 25 MB free headroom is required to start recording.</string>
+    <string name="notification_channel_standby_name">Background Protection</string>
+    <string name="notification_channel_standby_desc">Silent always-on service keeping SafeVoice ready in the background.</string>
+    <string name="notification_standby_title">SafeVoice Running in Background</string>
+    <string name="notification_standby_text">Always-on protection active • Tap to open or record</string>
+    <string name="notification_resume_title">SafeVoice Recording Interrupted by Restart</string>
+    <string name="notification_resume_text">Tap to resume your active recording session immediately</string>
+</resources>

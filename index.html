@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Safe Voice is a secure voice and communication application built for user privacy, explicit consent, and reliability." />
+  <title>Safe Voice — Private &amp; Reliable Voice Application</title>
+  <style>
+    :root {
+      --bg: #f6f8fc;
+      --surface: #ffffff;
+      --surface-alt: #eef3ff;
+      --text: #0f172a;
+      --text-muted: #475569;
+      --primary: #1d4ed8;
+      --primary-hover: #1e40af;
+      --primary-soft: #dbeafe;
+      --border: #e2e8f0;
+      --shadow: 0 10px 30px rgba(15, 23, 42, 0.06);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 960px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    header {
+      background-color: rgba(255, 255, 255, 0.92);
+      border-bottom: 1px solid var(--border);
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(8px);
+    }
+
+    .nav-bar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      min-height: 68px;
+      flex-wrap: wrap;
+      padding: 10px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-weight: 700;
+      font-size: 1.15rem;
+      letter-spacing: -0.01em;
+    }
+
+    .brand-mark {
+      width: 38px;
+      height: 38px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: #ffffff;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      color: var(--text-muted);
+      transition: background-color 0.15s ease, color 0.15s ease;
+    }
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      background-color: var(--surface-alt);
+      color: var(--primary);
+      outline: none;
+    }
+
+    main {
+      padding: 40px 0 64px;
+    }
+
+    .hero {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 40px 32px;
+      box-shadow: var(--shadow);
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background-color: var(--primary-soft);
+      color: var(--primary);
+      font-size: 0.85rem;
+      font-weight: 600;
+      margin-bottom: 18px;
+    }
+
+    .hero h1 {
+      margin: 0 0 14px;
+      font-size: clamp(1.9rem, 4vw, 2.75rem);
+      line-height: 1.15;
+      letter-spacing: -0.02em;
+    }
+
+    .hero p {
+      margin: 0 0 28px;
+      font-size: 1.08rem;
+      color: var(--text-muted);
+      max-width: 68ch;
+    }
+
+    .cta-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 48px;
+      padding: 12px 22px;
+      border-radius: 12px;
+      font-size: 0.98rem;
+      font-weight: 600;
+      transition: background-color 0.15s ease, border-color 0.15s ease, transform 0.1s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background-color: var(--primary);
+      color: #ffffff;
+      border: 1px solid var(--primary);
+    }
+
+    .btn-primary:hover,
+    .btn-primary:focus-visible {
+      background-color: var(--primary-hover);
+      border-color: var(--primary-hover);
+      outline: none;
+    }
+
+    .btn-secondary {
+      background-color: var(--surface);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-secondary:hover,
+    .btn-secondary:focus-visible {
+      background-color: var(--surface-alt);
+      border-color: #bfdbfe;
+      color: var(--primary);
+      outline: none;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 18px;
+      margin-bottom: 28px;
+    }
+
+    .card {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+    }
+
+    .card-icon {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      background-color: var(--surface-alt);
+      color: var(--primary);
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 14px;
+    }
+
+    .card h2 {
+      margin: 0 0 8px;
+      font-size: 1.12rem;
+      letter-spacing: -0.01em;
+    }
+
+    .card p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    .legal-box {
+      background-color: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 24px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+
+    .legal-box h2 {
+      margin: 0 0 4px;
+      font-size: 1.1rem;
+    }
+
+    .legal-box p {
+      margin: 0;
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    footer {
+      border-top: 1px solid var(--border);
+      background-color: var(--surface);
+      padding: 24px 0;
+      color: var(--text-muted);
+      font-size: 0.9rem;
+    }
+
+    .footer-inner {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+    }
+
+    .footer-links a {
+      color: var(--primary);
+      font-weight: 500;
+    }
+
+    .footer-links a:hover {
+      text-decoration: underline;
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 28px 20px;
+      }
+      .cta-group .btn {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="container nav-bar">
+      <a class="brand" href="index.html" aria-label="Safe Voice Home">
+        <span class="brand-mark" aria-hidden="true">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+            <path d="M12 8v5"></path>
+            <path d="M9 10v1"></path>
+            <path d="M15 10v1"></path>
+          </svg>
+        </span>
+        <span>Safe Voice</span>
+      </a>
+      <nav class="nav-links" aria-label="Primary navigation">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <section class="hero">
+      <div class="badge">Privacy-First Voice &amp; Communication</div>
+      <h1>Safe Voice</h1>
+      <p>
+        Safe Voice is a secure voice and communication application built for user privacy and reliability.
+        Designed around explicit user consent, hardware-backed encryption, and minimal permissions, Safe Voice gives you dependable control over your voice recordings and cloud backups.
+      </p>
+      <div class="cta-group">
+        <a class="btn btn-primary" href="privacy.html">Privacy Policy</a>
+        <a class="btn btn-secondary" href="terms.html">Terms of Service</a>
+      </div>
+    </section>
+
+    <section class="grid" aria-label="Core principles">
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+          </svg>
+        </div>
+        <h2>Encryption &amp; Local Protection</h2>
+        <p>
+          Audio segments are protected with hardware-backed Android Keystore AES-256-GCM encryption and PIN-gated controls to safeguard stored files.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"></path>
+            <path d="M19 10v2a7 7 0 0 1-14 0v-2"></path>
+            <line x1="12" y1="19" x2="12" y2="23"></line>
+            <line x1="8" y1="23" x2="16" y2="23"></line>
+          </svg>
+        </div>
+        <h2>Consent-Driven Reliability</h2>
+        <p>
+          Voice capture runs strictly under user control with resilient segmentation, crash recovery, and reliable session handling on Android devices.
+        </p>
+      </article>
+
+      <article class="card">
+        <div class="card-icon" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M18 10h-1.26A8 8 0 1 0 9 20h9a5 5 0 0 0 0-10z"></path>
+          </svg>
+        </div>
+        <h2>Minimal-Scope Google Integration</h2>
+        <p>
+          When you choose to connect Google Sign-In for Drive backups, Safe Voice uses limited permissions strictly for folders and files created by the app.
+        </p>
+      </article>
+    </section>
+
+    <section class="legal-box" aria-label="Documentation and policies">
+      <div>
+        <h2>Transparency &amp; App Policies</h2>
+        <p>Review how Safe Voice handles data, permissions, Google OAuth access, and service terms.</p>
+      </div>
+      <div class="cta-group">
+        <a class="btn btn-secondary" href="privacy.html">Read Privacy Policy</a>
+        <a class="btn btn-secondary" href="terms.html">Read Terms of Service</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container footer-inner">
+      <span>&copy; 2026 Safe Voice. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="index.html">Home</a>
+        <a href="privacy.html">Privacy Policy</a>
+        <a href="terms.html">Terms of Service</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>

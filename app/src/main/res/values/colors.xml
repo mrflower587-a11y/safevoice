@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="safe_blue_primary">#2563EB</color>
+    <color name="safe_blue_icon">#1C40A0</color>
+    <color name="surface_bg">#F8FAFC</color>
+</resources>

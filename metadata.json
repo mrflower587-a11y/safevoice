@@ -1,0 +1,6 @@
+{
+  "name": "SafeVoice",
+  "description": "Privacy-first Android voice recorder with hardware-backed AES-256-GCM encryption, PIN lock, silent foreground service, and encrypted Google Drive backup.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

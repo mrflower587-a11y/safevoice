@@ -1,11 +1,16 @@
-<div align="center">
+# Safe Voice
 
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
+**Safe Voice** is a secure, privacy-first Android voice recording and communication application designed around explicit user consent, hardware-backed AES-256-GCM encryption, and optional minimal-scope Google Drive backup.
 
-  <h1>Built with AI Studio</h2>
+## GitHub Pages & Google Cloud OAuth Links
 
-  <p>The fastest path from prompt to production with Gemini.</p>
+- **Home Page:** https://mrflower587-a11y.github.io/safevoice/
+- **Privacy Policy:** https://mrflower587-a11y.github.io/safevoice/privacy.html
+- **Terms of Service:** https://mrflower587-a11y.github.io/safevoice/terms.html
+- **Google Cloud Authorized Domain:** `mrflower587-a11y.github.io`
 
-  <a href="https://aistudio.google.com/apps">Start building</a>
+## Static Pages Included
 
-</div>
+- `index.html` — Standalone, mobile-responsive landing page with navigation to the Privacy Policy and Terms of Service.
+- `privacy.html` — Public Privacy Policy page (Effective Date: November 24, 2026).
+- `terms.html` — Public Terms of Service page (Effective Date: November 24, 2026).
